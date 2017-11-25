@@ -9,8 +9,17 @@ body{
   background-image: url('motif.png');
   background-size: cover;
   display: flex;
+
   color:#63CBF2;
   text-align: center;
+
+  color: #63CBF2;
+  font-family: 'Cabin', sans-serif;
+}
+
+.inputPart {
+  margin-top: 5em;
+
 }
 
 .filterChoice{
@@ -23,8 +32,8 @@ body{
   background-color: #232323;
 }
 
-.accrocheTwo{
-  margin-top: 20%;
+.accrocheOne {
+  letter-spacing: 2px;
 }
 
 .myButton{
@@ -34,10 +43,26 @@ body{
   color: #63CBF2;
 
 }
-
-hr{
+.filtres {
+  margin-top: 5em;
+}
+.filtresBar {
+  margin-top: 3em;
+}
+.filtresDisplay {
   width: 80%;
+
   margin-top: 10%;
   margin-bottom: 10%;
+
+
   background-color: #63CBF2;
+  height: 5px;
+}
+.searchButton {
+  transition: 1s;
+}
+.searchButton:hover {
+  transform: scale(1.2) rotateX(360deg);
+  transition: 1s;
 }

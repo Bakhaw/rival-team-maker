@@ -1,0 +1,12 @@
+.myTeam {
+  margin: auto;
+  width: 80%;
+  border: 2px solid #63CBF2;
+  min-height: 100vh;
+}
+
+.accrocheOne {
+  margin-top: 1em;
+  color: #63CBF2;
+  font-family: 'Cabin', sans-serif;
+}
