@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Members from './Members';
 import Records from './Records';
+import StatsTeam from './StatsTeam';
 import './MyTeam.css';
 
 class MyTeam extends Component {
@@ -24,6 +25,7 @@ class MyTeam extends Component {
             </div>
             <div className="accrocheOne text-left col-md-6">
               <h4>Statistiques de l'équipe par jeu</h4>
+              <StatsTeam />
             </div>
           </div>
       </div>
