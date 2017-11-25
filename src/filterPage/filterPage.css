@@ -9,6 +9,11 @@ body{
 .filter{
   display: flex;
   color:#63CBF2;
+  font-family: 'Cabin', sans-serif;
+}
+
+.inputPart {
+  margin-top: 5em;
 }
 
 .filterChoice{

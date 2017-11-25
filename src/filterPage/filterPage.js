@@ -25,11 +25,13 @@ class Filter extends Component{
     return (
       <div className="filter text-center">
         <div className="filterChoice">
-          <p className="accrocheOne"><u><strong>TROUVEZ DES JOUEURS<br/>avec les mêmes habitudes de jeu que vous!</strong></u></p>
+          <h3 className="accrocheOne">
+            <u><strong>TROUVEZ DES JOUEURS<br/>avec les mêmes habitudes de jeu que vous!</strong></u>
+          </h3>
           <div className="inputPart">
             <Input />
             <div className="filtresBar">
-              <p>FILTRES</p>
+              <h4>FILTRES</h4>
               <hr onClick={() => this.handleDisplay()} className="filtresDisplay" />
             </div>
             <div className="filtres" style={displayer}>
