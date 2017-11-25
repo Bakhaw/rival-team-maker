@@ -11,8 +11,10 @@ const style = {
 const Input = () => (
   <div>
     <TextField hintText="Entrez votre ID" hintStyle={{ color: 'white' }} inputStyle={{ color: 'white' }}/>
-    <RaisedButton label="Rechercher" style={style} labelColor="#63CBF2"
-                  buttonStyle={{ backgroundColor: 'black' }}/>
+    <div className="searchButton">
+      <RaisedButton label="Rechercher" style={style} labelColor="#63CBF2"
+                    buttonStyle={{ backgroundColor: 'black' }}/>
+    </div>
   </div>
 );
 

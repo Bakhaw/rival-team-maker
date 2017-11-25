@@ -8,7 +8,7 @@ body{
 
 .filter{
   display: flex;
-  color:#63CBF2;
+  color: #63CBF2;
   font-family: 'Cabin', sans-serif;
 }
 
@@ -46,4 +46,11 @@ body{
   width: 80%;
   background-color: #63CBF2;
   height: 5px;
+}
+.searchButton {
+  transition: 1s;
+}
+.searchButton:hover {
+  transform: scale(1.2) rotateX(360deg);
+  transition: 1s;
 }
