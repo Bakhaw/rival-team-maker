@@ -1,37 +1,44 @@
 import React, { Component } from 'react';
-
-import ubisoftLogo from './logo_ubisoft.png';
-import Filter from './filterPage/filterPage';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import User from './userPage/userPage';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Filter from './filterPage/filterPage';
+import UserPage from './userPage/userPage';
 import MyTeam from './myTeam/MyTeam';
-
 
 class App extends Component {
   render() {
     return (
-
-      <div className="App">
-        <header className="App-header">
-          <img src={ubisoftLogo} className="App-logo" alt="logo ubisoft" />
-          <h1>Hackathon</h1>
-          <h1>PIMP THE DATA !</h1>
-          <h1 className="App-title">UBISOFT X SIMPLON</h1>
-          <p className="App-intro">#RivalMaker</p>
-        </header>
-        <Filter />
-        <User/>
-
       <div>
         <MuiThemeProvider>
-          <Filter />
-          <p className="text-light text-center">Joueurs trouvés...</p>
-          <MyTeam />
-        </MuiThemeProvider>
+          <Router>
+            <div>
+            <ul className="d-flex justify-content-around" style={{ marginTop: '10px' }}>
+              <li>
+                <Link style={{ color: 'white' }} to="/">Home</Link>
+              </li>
+              <li>
+                <Link style={{ color: 'white' }} to="/search">Rechercher</Link>
+              </li>
+              <li>
+                <Link style={{ color: 'white' }} to="/players">Joueurs trouvés</Link>
+              </li>
+              <li>
+                <Link style={{ color: 'white' }} to="/team">Mon équipe</Link>
+              </li>
+            </ul>
 
-      </div>
+            {/* <Route path="/"/ component={Home}> */}
+            <Route path="/search" component={Filter}/>
+            <Route path="/players" component={UserPage}/>
+            <Route path="/team" component={MyTeam}/>
+          </div>
+        </Router>
+          {/* <Filter />
+          <UserPage />
+          <MyTeam /> */}
+        </MuiThemeProvider>
+    </div>
     );
   }
 }

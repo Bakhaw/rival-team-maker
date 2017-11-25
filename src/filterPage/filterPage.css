@@ -9,10 +9,7 @@ body{
   background-image: url('motif.png');
   background-size: cover;
   display: flex;
-
-  color:#63CBF2;
   text-align: center;
-
   color: #63CBF2;
   font-family: 'Cabin', sans-serif;
 }
@@ -49,13 +46,14 @@ body{
 .filtresBar {
   margin-top: 3em;
 }
+.filtresBar:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 .filtresDisplay {
   width: 80%;
-
   margin-top: 10%;
   margin-bottom: 10%;
-
-
   background-color: #63CBF2;
   height: 5px;
 }

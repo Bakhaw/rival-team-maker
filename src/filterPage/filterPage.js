@@ -29,9 +29,8 @@ class Filter extends Component{
           </h3>
           <div className="inputPart">
             <Input />
-            <div className="filtresBar">
-              <h5>Affiner ma recherche</h5>
-              <hr onClick={() => this.handleDisplay()} className="filtresDisplay" />
+            <div>
+              <h5 onClick={() => this.handleDisplay()} className="filtresBar">Affiner ma recherche</h5>
             </div>
             <div className="filtres" style={displayer}>
               <Checkbox/>
