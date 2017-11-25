@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import User from './userPage/userPage';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Home from './pageAcceuil/pageAccueil';
 import Filter from './filterPage/filterPage';
 import UserPage from './userPage/userPage';
 import MyTeam from './myTeam/MyTeam';
@@ -28,7 +29,7 @@ class App extends Component {
               </li>
             </ul>
 
-            {/* <Route path="/"/ component={Home}> */}
+            <Route path="/" component={Home}/>
             <Route path="/search" component={Filter}/>
             <Route path="/players" component={UserPage}/>
             <Route path="/team" component={MyTeam}/>
