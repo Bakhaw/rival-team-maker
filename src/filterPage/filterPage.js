@@ -3,7 +3,6 @@ import './filterPage.css';
 import Checkbox from './Checkbox';
 import Input from './Input';
 
-
 class Filter extends Component{
 
   state = {
@@ -26,12 +25,12 @@ class Filter extends Component{
       <div className="filter text-center">
         <div className="filterChoice">
           <h3 className="accrocheOne">
-            <u><strong>TROUVEZ DES JOUEURS<br/>avec les mêmes habitudes de jeu que vous!</strong></u>
+            <strong>TROUVEZ DES JOUEURS</strong>
           </h3>
           <div className="inputPart">
             <Input />
             <div className="filtresBar">
-              <h4>FILTRES</h4>
+              <h5>Affiner ma recherche</h5>
               <hr onClick={() => this.handleDisplay()} className="filtresDisplay" />
             </div>
             <div className="filtres" style={displayer}>

@@ -25,8 +25,8 @@ body{
   background-color: #232323;
 }
 
-.accrocheTwo{
-  margin-top: 20%;
+.accrocheOne {
+  letter-spacing: 2px;
 }
 
 .myButton{
@@ -42,7 +42,7 @@ body{
 .filtresBar {
   margin-top: 3em;
 }
-.filtresDisplay{
+.filtresDisplay {
   width: 80%;
   background-color: #63CBF2;
   height: 5px;
