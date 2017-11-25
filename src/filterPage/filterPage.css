@@ -1,0 +1,44 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-image: url('motif.png');
+  background-size: cover;
+  background-color: #232323;
+}
+
+.filter{
+  display: flex;
+  color:#63CBF2;
+}
+
+.filterChoice{
+  margin: auto;
+  padding: 10%;
+  width: 80%;
+  height: auto;
+  border: 2px solid black;
+  background-color: #232323;
+}
+
+.accrocheTwo{
+  margin-top: 20%;
+}
+
+.myButton{
+  font-size: 100%;
+  border: 2px solid #63CBF2;
+  background-color: black;
+  color: #63CBF2;
+
+}
+.filtres {
+  margin-top: 5em;
+}
+.filtresBar {
+  margin-top: 3em;
+}
+.filtresDisplay{
+  width: 80%;
+  background-color: #63CBF2;
+  height: 5px;
+}
