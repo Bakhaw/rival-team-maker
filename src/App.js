@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ubisoftLogo from './logo_ubisoft.png';
 import './App.css';
+import Filter from './filterPage/filterPage';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <h1 className="App-title">UBISOFT X SIMPLON</h1>
           <p className="App-intro">#RivalMaker</p>
         </header>
+        <Filter />
       </div>
     );
   }
