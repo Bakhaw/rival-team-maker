@@ -1,0 +1,64 @@
+.userPage{
+  height: auto;
+  width: auto;
+  background-image: url('../filterPage/motif.png');
+  background-size: cover;
+  text-align: center;
+  color: #63CBF2;
+}
+
+.backgroundFight{
+  margin: auto;
+  padding: 10%;
+  width: 80%;
+  height: auto;
+  border-left: 2px solid #63CBF2;
+  border-right: 2px solid #63CBF2;
+  background-image: url('./motif2.png');
+  background-size: cover;
+}
+
+.cadre{
+  width: 50%;
+  height: 100%;
+  background-color: #363636;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.joueurPicture{
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  width:40%;
+}
+
+.graph{
+  height: 10vh;
+  margin-bottom: 30%;
+}
+
+.graphique{
+  width: 80%;
+}
+
+.buttons{
+  font-size: 1.5em;
+  width: auto;
+  margin-bottom: 10%;
+}
+
+.buttonBleu{
+  background-color: black;
+  color:#63CBF2;
+  border: 2px solid #63CBF2;
+  margin-right: 20px;
+}
+
+.buttonOrange{
+  background-color: black;
+  color:#FE9400;
+  border: 2px solid #FE9400;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ubisoftLogo from './logo_ubisoft.png';
-import './App.css';
 import Filter from './filterPage/filterPage';
+import User from './userPage/userPage';
 
 class App extends Component {
   render() {
@@ -15,6 +15,7 @@ class App extends Component {
           <p className="App-intro">#RivalMaker</p>
         </header>
         <Filter />
+        <User/>
       </div>
     );
   }

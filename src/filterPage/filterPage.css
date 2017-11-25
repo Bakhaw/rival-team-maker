@@ -1,14 +1,16 @@
 body{
   margin: 0;
   padding: 0;
-  background-image: url('motif.png');
-  background-size: cover;
   background-color: #232323;
+  font-family: 'Cabin', sans-serif;
 }
 
 .filter{
+  background-image: url('motif.png');
+  background-size: cover;
   display: flex;
   color:#63CBF2;
+  text-align: center;
 }
 
 .filterChoice{
@@ -16,7 +18,8 @@ body{
   padding: 10%;
   width: 80%;
   height: auto;
-  border: 2px solid black;
+  border-left: 2px solid #63CBF2;
+  border-right: 2px solid #63CBF2;
   background-color: #232323;
 }
 
@@ -34,6 +37,7 @@ body{
 
 hr{
   width: 80%;
-  margin-top: 20%;
+  margin-top: 10%;
+  margin-bottom: 10%;
   background-color: #63CBF2;
 }
