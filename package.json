@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.7.1",
     "material-ui": "^0.19.4",
     "react": "^16.1.1",
     "react-bootstrap": "^0.31.5",
+    "react-chartjs-2": "^2.6.4",
     "react-dom": "^16.1.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17"
@@ -15,5 +17,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfrisby/rival-team-maker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfrisby/rival-team-maker/issues"
+  },
+  "homepage": "https://github.com/mfrisby/rival-team-maker#readme"
 }
