@@ -4,30 +4,44 @@ import Joueur from './joueur.jpg';
 import Gauche from './left.png';
 import Droite from './right.png';
 import Graph from './graph.png';
+import UserButtons from './UserButtons';
 
 class User extends Component{
-  render(){
-    return(
+  render () {
+
+    return (
       <div className="userPage">
         <div className="backgroundFight">
-          <h1 className="titleJoueur"><u>JOUEURS TROUVÉS</u></h1>
+          <h1 className="titleJoueur"><u>COMMUNAUTÉS TROUVÉES</u></h1>
           <div className="cadre">
-            <div className="flechesImage">
+            <div className="flechesImage d-flex justify-content-center align-items-center">
               <img src={Gauche} alt="gauche" className="gauche"/>
               <img src={Joueur} alt="joueurPicture" className="joueurPicture"/>
               <img src={Droite} alt="droite" className="droite"/>
             </div>
-            <h3 className="User"> Jean-Patrick</h3>
-            <p>France</p>
-            <p>Rainbow 6</p>
-            <p>Noob</p>
-            <p>Horaires: 4 am</p>
+            <ul className="d-flex flex-column justify-content-center align-items-center">
+            {this.props.data.map((community, index) =>
+              <li key={index}>
+                <p>
+                  {community.name}
+                </p>
+                <p>
+                  {community.nb_player} joueur(s)
+                </p>
+                <p>
+                  {community.country}
+                </p>
+                <p>Rainbow 6</p>
+                <p>Horaires: 4 am</p>
+              </li>
+            )}
+            </ul>
+
             <div className="graph">
               <img src={Graph} alt="graph" className="graphique"/>
             </div>
             <div className="buttons">
-              <button type="button" className="buttonBleu">Rejoindre</button>
-              <button type="button" className="buttonOrange">Inviter</button>
+              <UserButtons />
             </div>
           </div>
         </div>

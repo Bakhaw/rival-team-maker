@@ -5,8 +5,8 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="lol">
-
+      <div className="text-center">
+        <h1>Page d'acceuil en construction ...</h1>
       </div>
     );
   }

@@ -7,9 +7,47 @@ import UserPage from './userPage/userPage';
 import MyTeam from './myTeam/MyTeam';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      communityIndex: 20,
+    };
+  };
+
+  goRight = ()  => {
+    this.setState({
+      communityIndex: this.state.communityIndex + 1,
+    });
+  };
+
+  goLeft = ()  => {
+    this.setState({
+      communityIndex: this.state.communityIndex - 1,
+    });
+  };
+
+  componentDidMount() {
+    fetch('http://192.168.207.93:5000/api/community/' + [this.state.communityIndex])
+      .then(data => data.json())
+      .then(data => this.setState({ data: [data] }));
+  };
+
   render() {
+    console.log(this.state.data);
+    const myUserPage = (props) => {
+      return (
+        <UserPage
+          data={this.state.data}
+          {...props}
+        />
+      );
+    };
     return (
-      <div>
+      <div className="text-light">
+        <button onClick={() => this.goLeft()} >GO LEFT</button>
+        <button onClick={() => this.goRight()} >GO RIGHT</button>
+
         <MuiThemeProvider>
           <Router>
             <div>
@@ -30,7 +68,7 @@ class App extends Component {
 
             <Route exact path="/" component={Home}/>
             <Route path="/search" component={Filter}/>
-            <Route path="/players" component={UserPage}/>
+            <Route path="/players" render={myUserPage}/>
             <Route path="/team" component={MyTeam}/>
           </div>
         </Router>

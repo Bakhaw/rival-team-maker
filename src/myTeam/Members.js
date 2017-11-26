@@ -11,31 +11,31 @@ const StatsTeam = () => (
     <List className="d-flex">
       <div className="col-md-3">
         <ListItem
-          style={{ color: '#63CBF2' }}
-          disabled={true}
+          style={{ backgroundColor: '#272F33', color: '#63CBF2' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               backgroundColor='transparent' src={userblue} />} >
           Joueur 1
         </ListItem>
         <ListItem
-          style={{ color: '#FF9600' }}
-          disabled={true}
+          style={{ backgroundColor: '#342A1B', color: '#FF9600' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#FF9600"
                               backgroundColor='transparent'  src={userorange} />} >
           Joueur 2
         </ListItem>
         <ListItem
-          style={{ color: '#63CBF2' }}
-          disabled={true}
+          style={{ backgroundColor: '#272F33', color: '#63CBF2' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#75C8F4"
                               backgroundColor='transparent'  src={userblue} />} >
           Joueur 3
         </ListItem>
         <ListItem
-          style={{ color: '#FF9600' }}
-          disabled={true}
+          style={{ backgroundColor: '#342A1B', color: '#FF9600' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#FF9600"
                               backgroundColor='transparent'  src={userorange} />} >
@@ -44,32 +44,32 @@ const StatsTeam = () => (
       </div>
       <div className="col-md-3">
         <ListItem
-          style={{ color: '#63CBF2' }}
-          disabled={true}
+          style={{ backgroundColor: '#272F33', color: '#63CBF2' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#75C8F4"
                               backgroundColor='transparent'  src={userblue} />} >
           Joueur 5
         </ListItem>
         <ListItem
-          style={{ color: '#FF9600' }}
-          disabled={true}
+          style={{ backgroundColor: '#342A1B', color: '#FF9600' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#FF9600"
                               backgroundColor='transparent'  src={userorange} />} >
           Joueur 6
         </ListItem>
         <ListItem
-          style={{ color: '#63CBF2' }}
-          disabled={true}
+          style={{ backgroundColor: '#272F33', color: '#63CBF2' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#75C8F4"
                               backgroundColor='transparent'  src={userblue} />} >
           Joueur 7
         </ListItem>
         <ListItem
-          style={{ color: '#FF9600' }}
-          disabled={true}
+          style={{ backgroundColor: '#342A1B', color: '#FF9600' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#FF9600"
                               backgroundColor='transparent'  src={userorange} />} >
@@ -78,32 +78,32 @@ const StatsTeam = () => (
       </div>
       <div className="col-md-3">
         <ListItem
-          style={{ color: '#63CBF2' }}
-          disabled={true}
+          style={{ backgroundColor: '#272F33', color: '#63CBF2' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#75C8F4"
                               backgroundColor='transparent'  src={userblue} />} >
           Joueur 9
         </ListItem>
         <ListItem
-          style={{ color: '#FF9600' }}
-          disabled={true}
+          style={{ backgroundColor: '#342A1B', color: '#FF9600' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#FF9600"
                               backgroundColor='transparent'  src={userorange} />} >
           Joueur 10
         </ListItem>
         <ListItem
-          style={{ color: '#63CBF2' }}
-          disabled={true}
+          style={{ backgroundColor: '#272F33', color: '#63CBF2' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#75C8F4"
                               backgroundColor='transparent'  src={userblue} />} >
           Joueur 11
         </ListItem>
         <ListItem
-          style={{ color: '#FF9600' }}
-          disabled={true}
+          style={{ backgroundColor: '#342A1B', color: '#FF9600' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#FF9600"
                               backgroundColor='transparent'  src={userorange} />} >
@@ -112,24 +112,24 @@ const StatsTeam = () => (
       </div>
       <div className="col-md-3">
         <ListItem
-          style={{ color: '#63CBF2' }}
-          disabled={true}
+          style={{ backgroundColor: '#272F33', color: '#63CBF2' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#75C8F4"
                               backgroundColor='transparent'  src={userblue} />} >
           Joueur 13
         </ListItem>
         <ListItem
-          style={{ color: '#FF9600' }}
-          disabled={true}
+          style={{ backgroundColor: '#342A1B', color: '#FF9600' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#FF9600"
                               backgroundColor='transparent'  src={userorange} />} >
           Joueur 14
         </ListItem>
         <ListItem
-          style={{ color: '#63CBF2' }}
-          disabled={true}
+          style={{ backgroundColor: '#272F33', color: '#63CBF2' }}
+          disabled={false}
           leftAvatar={<Avatar style={{ borderRadius: '0' }}
                               color="#75C8F4"
                               backgroundColor='transparent'  src={userblue} />} >
