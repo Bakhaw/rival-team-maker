@@ -15,9 +15,9 @@ class User extends Component{
           <h1 className="titleJoueur"><u>COMMUNAUTÉS TROUVÉES</u></h1>
           <div className="cadre">
             <div className="flechesImage d-flex justify-content-center align-items-center">
-              <img src={Gauche} alt="gauche" className="gauche"/>
+              <img src={Gauche} onClick={this.props.goLeft} alt="gauche" className="gauche"/>
               <img src={Joueur} alt="joueurPicture" className="joueurPicture"/>
-              <img src={Droite} alt="droite" className="droite"/>
+              <img src={Droite} onClick={this.props.goRight} alt="droite" className="droite"/>
             </div>
             <ul className="d-flex flex-column justify-content-center align-items-center">
             {this.props.data.map((community, index) =>
@@ -31,7 +31,7 @@ class User extends Component{
                 <p>
                   {community.country}
                 </p>
-                <p>Rainbow 6</p>
+                <p>Just Dance</p>
                 <p>Horaires: 4 am</p>
               </li>
             )}

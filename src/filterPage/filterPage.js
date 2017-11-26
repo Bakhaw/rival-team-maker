@@ -17,24 +17,21 @@ class Filter extends Component{
 
   render() {
 
-    const displayer = {
-      'display': this.state.formToggle ? 'inline' : 'none',
-    };
+    // const displayer = {
+    //   'display': this.state.formToggle ? 'inline' : 'none',
+    // };
 
     return (
       <div className="filter text-center">
-        <div className="filterChoice">
-          <h3 className="accrocheOne">
-            <strong>TROUVEZ DES JOUEURS</strong>
-          </h3>
+        <div className="filterChoice d-flex justify-content-center align-items-center">
           <div className="inputPart">
             <Input />
-            <div>
+            {/* <div>
               <h5 onClick={() => this.handleDisplay()} className="filtresBar">Affiner ma recherche</h5>
             </div>
-            <div className="filtres" style={displayer}>
+            {/* <div className="filtres" style={displayer}>
               <Checkbox/>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ import rainbow from './images/rainbow.png';
 import thecrew from './images/thecrew.png';
 
 const StatsTeam = () => (
-  <div>
+  <div className="statsTeam">
     <List className="d-flex">
       <div className="col-md-6">
         <ListItem

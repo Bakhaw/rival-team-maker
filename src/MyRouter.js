@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Filter from './filterPage/filterPage';
 import UserPage from './userPage/userPage';
 import MyTeam from './myTeam/MyTeam';
+import './myRouter.css';
 
 class MyRouter extends Component {
 
@@ -13,7 +14,7 @@ class MyRouter extends Component {
       <div>
         <Router>
           <div>
-          <ul className="d-flex justify-content-around">
+          <ul className="d-flex justify-content-around routerListe">
             <li>
               <Link to="/">Home</Link>
             </li>

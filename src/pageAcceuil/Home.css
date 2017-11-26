@@ -1,4 +1,18 @@
-.lol {
-  background-color: red;
-  height: 40vh;
+.Home{
+  width: 100%;
+  height: 95vh;
+  background-image: url('Home.png');
+  background-size: cover;
+  display: flex;
+}
+
+.textAccueil{
+  margin: auto;
+  text-align: center;
+}
+
+.acc{
+  background-color: black;
+  color: white;
+  font-size: 3em;
 }

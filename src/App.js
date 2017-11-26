@@ -6,29 +6,32 @@ import Filter from './filterPage/filterPage';
 import UserPage from './userPage/userPage';
 import MyTeam from './myTeam/MyTeam';
 
+var communityIndex = 0;
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      communityIndex: 20,
     };
   };
 
   goRight = ()  => {
-    this.setState({
-      communityIndex: this.state.communityIndex + 1,
-    });
+    communityIndex++;
+    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
+      .then(data => data.json())
+      .then(data => this.setState({ data: [data] }));
   };
 
   goLeft = ()  => {
-    this.setState({
-      communityIndex: this.state.communityIndex - 1,
-    });
+    communityIndex--;
+    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
+      .then(data => data.json())
+      .then(data => this.setState({ data: [data] }));
   };
 
   componentDidMount() {
-    fetch('http://192.168.207.93:5000/api/community/' + [this.state.communityIndex])
+    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
       .then(data => data.json())
       .then(data => this.setState({ data: [data] }));
   };
@@ -38,16 +41,13 @@ class App extends Component {
     const myUserPage = (props) => {
       return (
         <UserPage
-          data={this.state.data}
+          data={this.state.data} goLeft={() => this.goLeft()} goRight={() => this.goRight()}
           {...props}
         />
       );
     };
     return (
       <div className="text-light">
-        <button onClick={() => this.goLeft()} >GO LEFT</button>
-        <button onClick={() => this.goRight()} >GO RIGHT</button>
-
         <MuiThemeProvider>
           <Router>
             <div>

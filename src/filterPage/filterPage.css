@@ -16,17 +16,15 @@ body{
 
 .inputPart {
   margin-top: 5em;
-
 }
 
 .filterChoice{
   margin: auto;
-  padding: 10%;
   width: 80%;
-  height: auto;
+  height: 92vh;
   border-left: 2px solid #63CBF2;
   border-right: 2px solid #63CBF2;
-  background-color: #232323;
+  background-image: url('./background_justdance.png');
 }
 
 .accrocheOne {
@@ -58,9 +56,10 @@ body{
   height: 5px;
 }
 .searchButton {
-  transition: 1s;
+  transform: scale(1.4);
+  transition: 0.3s;
 }
 .searchButton:hover {
-  transform: scale(1.2) rotateX(360deg);
-  transition: 1s;
+  transform: scale(1.8);
+  transition: 0.3s;
 }
