@@ -21,7 +21,7 @@ li {
 
 .cadre{
   width: 30%;
-  height: 100%;
+  height: auto;
   background-color: rgba(30, 19, 68, 0.73);
   border-radius: 10px;
   margin: auto;
@@ -37,7 +37,7 @@ li {
 }
 
 .graph{
-  height: 10vh;
+  height: auto;
   margin-bottom: 30%;
 }
 
