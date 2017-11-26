@@ -5,8 +5,24 @@ import Gauche from './left.png';
 import Droite from './right.png';
 import Graph from './graph.png';
 import UserButtons from './UserButtons';
+import { Bar } from 'react-chartjs-2';
 
-class User extends Component{
+const data = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: 'Graphique des scores',
+      backgroundColor: 'rgba(255,99,132,0.2)',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [65, 59, 80, 81, 56, 55, 40],
+    },
+  ],
+};
+
+class User extends Component {
   render () {
 
     return (
@@ -14,32 +30,156 @@ class User extends Component{
         <div className="backgroundFight">
           <h1 className="titleJoueur"><u>COMMUNAUTÉS TROUVÉES</u></h1>
           <div className="cadre">
-            <div className="flechesImage d-flex justify-content-center align-items-center">
-              <img src={Gauche} onClick={this.props.goLeft} alt="gauche" className="gauche"/>
-              <img src={Joueur} alt="joueurPicture" className="joueurPicture"/>
-              <img src={Droite} onClick={this.props.goRight} alt="droite" className="droite"/>
-            </div>
             <ul className="d-flex flex-column justify-content-center align-items-center">
             {this.props.data.map((community, index) =>
-              <li key={index}>
-                <p>
-                  {community.name}
-                </p>
-                <p>
-                  {community.nb_player} joueur(s)
-                </p>
-                <p>
-                  {community.country}
-                </p>
-                <p>Just Dance</p>
-                <p>Horaires: 4 am</p>
+              <li key={index} className="d-flex">
+                <div className="flechesImage d-flex flex-column justify-content-center align-items-center">
+                  <img src={Joueur} alt="joueurPicture" className="joueurPicture"/>
+                  <div className="d-flex">
+                    <img src={Gauche} onClick={this.props.goLeft} alt="gauche" className="gauche"/>
+                    <img src={Droite} onClick={this.props.goRight} alt="droite" className="droite"/>
+                  </div>
+                  <p>
+                    {community.name}
+                  </p>
+                  <p>
+                    {community.nb_player} joueur(s)
+                  </p>
+                  <p>
+                    {community.country}
+                  </p>
+                  <p>{community.scores[3][1]}</p>
+                  <p style={{ color: '#ff9600' }}>Mes infos</p>
+                  <p style={{ color: '#75c8f4' }}>Infos de la communauté</p>
+                </div>
+                <div className="">
+                  <div className="graphTeamContainer" style={{ backgroundColor: 'rgba(30, 19, 68, 1)' }}>
+                    <p>Graphique des scores</p>
+                    <div className="graphTeam">
+                      <Bar
+                      data={
+                        {
+                          labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                          datasets: [
+                            {
+                              label: 'Scores communauté',
+                              backgroundColor: 'rgba(117, 200, 244, 0.6)',
+                              hoverBackgroundColor: 'rgba(117, 200, 244, 0.6)',
+                              data: community.scores,
+                            },
+                          ],
+                        }
+                      }
+                      width={600}
+                      height={300}
+                      options={{
+                        maintainAspectRatio: false,
+                        legend: { display: false },
+                      }}/>
+                    </div>
+                    <div className="graphMe">
+                      <Bar
+                      data={
+                        {
+                          labels: ['', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', ''],
+                          datasets: [
+                            {
+                              label: 'Vos scores',
+                              backgroundColor: 'rgba(255, 150, 0, 0.6)',
+                              hoverBackgroundColor: 'rgba(255, 150, 0, 0.6)',
+                              data: community.me.scores,
+                            },
+                          ],
+                        }
+                      }
+                      width={600}
+                      height={300}
+                      style={{ backgroundColor: 'black' }}
+                      options={{
+                        maintainAspectRatio: false,
+                        legend: { display: false },
+                      }}/>
+                    </div>
+                  </div>
+                  <div className="graphTeamContainer" style={{ backgroundColor: 'rgba(30, 19, 68, 1)' }}>
+                    <p style={{ color: '#ff9600' }}>Graphique des connexions</p>
+                    <div className="graphTeam">
+                      <Bar
+                      data={
+                        {
+                          labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', ''],
+                          datasets: [
+                            {
+                              label: 'Connexions communauté',
+                              backgroundColor: 'rgba(117, 200, 244, 0.4)',
+                              hoverBackgroundColor: 'rgba(117, 200, 244, 0.4)',
+                              data: community.connexions,
+                            },
+                          ],
+                        }
+                      }
+                      width={600}
+                      height={200}
+                      options={{
+                        maintainAspectRatio: false,
+                        legend: { display: false },
+                      }}/>
+                    </div>
+                    <div className="graphMe">
+                      <Bar
+                      data={
+                        {
+                          labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                                   '', '', ''],
+                          datasets: [
+                            {
+                              label: 'Vos connexions',
+                              backgroundColor: 'rgba(255, 150, 0, 0.4)',
+                              hoverBackgroundColor: 'rgba(255, 150, 0, 0.4)',
+                              data: community.me.connexions,
+                            },
+                          ],
+                        }
+                      }
+                      width={600}
+                      height={200}
+                      options={{
+                        maintainAspectRatio: false,
+                        legend: { display: false },
+                      }}/>
+                    </div>
+                  </div>
+                </div>
               </li>
+
             )}
             </ul>
 
-            <div className="graph">
+            {/* <div className="graph">
               <img src={Graph} alt="graph" className="graphique"/>
-            </div>
+            </div> */}
             <div className="buttons">
               <UserButtons />
             </div>

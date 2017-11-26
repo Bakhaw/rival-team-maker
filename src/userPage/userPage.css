@@ -20,7 +20,8 @@ li {
 }
 
 .cadre{
-  width: 30%;
+  padding: 1em;
+  width: 80%;
   height: 100%;
   background-color: rgba(30, 19, 68, 0.73);
   border-radius: 10px;
@@ -37,8 +38,8 @@ li {
 }
 
 .graph{
-  height: 10vh;
-  margin-bottom: 30%;
+  height: auto;
+  margin-bottom: 2em;
 }
 
 .graphique{
@@ -71,4 +72,10 @@ li {
 }
 .titleJoueur {
   padding-top: 2em;
+}
+.graphTeamContainer {
+  position: relative;
+}
+.graphTeam {
+  position: absolute;
 }

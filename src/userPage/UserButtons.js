@@ -21,13 +21,9 @@ const styleOrange = {
 };
 
 const Input = () => (
-  <div className="d-flex">
-    <div className="col-md-6 joinButton">
+  <div className="d-flex justify-content-center align-items-center">
+    <div className="joinButton">
       <RaisedButton label="Rejoindre" style={styleBlue} labelColor="#63CBF2"
-                    buttonStyle={{ backgroundColor: 'black' }}/>
-    </div>
-    <div className="col-md-6 inviteButton">
-      <RaisedButton label="Inviter" style={styleOrange} labelColor="#FE9400"
                     buttonStyle={{ backgroundColor: 'black' }}/>
     </div>
   </div>

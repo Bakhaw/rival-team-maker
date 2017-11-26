@@ -12,7 +12,7 @@ const Input = () => (
   <div>
     {/* <TextField hintText="Entrez votre ID" hintStyle={{ color: 'white' }} inputStyle={{ color: 'white' }}/> */}
     <div className="searchButton">
-      <RaisedButton label="TROUVEZ DES JOUEURS" style={style} labelColor="#63CBF2"
+      <RaisedButton href="http://localhost:3000/players" label="TROUVEZ DES JOUEURS" style={style} labelColor="#63CBF2"
                     buttonStyle={{ backgroundColor: 'black' }}/>
     </div>
   </div>
