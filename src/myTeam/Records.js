@@ -1,20 +1,55 @@
 import React from 'react';
-import { List, ListItem } from 'material-ui/List';
-import ContentInbox from 'material-ui/svg-icons/social/person';
+import Avatar from 'material-ui/Avatar';
+import List from 'material-ui/List/List';
+import ListItem from 'material-ui/List/ListItem';
+import tropheeOrange from './images/trophee_orange.png';
+import tropheeBleu from './images/trophee_bleu.png';
 
-const Records = () => (
-  <div className="d-flex">
-    <List className="col-md-6">
-      <ListItem style={{ color: '#75C8F4', fontSize: '.9em' }} primaryText="Joith, Rayman Legends" leftIcon={<ContentInbox />} />
-      <ListItem style={{ color: '#FF9600', fontSize: '.9em' }} primaryText="Randahite, Steep" leftIcon={<ContentInbox />} />
-      <ListItem style={{ color: '#75C8F4', fontSize: '.9em' }} primaryText="Stehders, Rainbow Six Siege" leftIcon={<ContentInbox />} />
-    </List>
-    <List className="col-md-6">
-      <ListItem style={{ color: '#FF9600', fontSize: '.9em' }} primaryText="Steown, The Crew" leftIcon={<ContentInbox />} />
-      <ListItem style={{ color: '#75C8F4', fontSize: '.9em' }} primaryText="Nolan, Just Dance" leftIcon={<ContentInbox />} />
-      <ListItem style={{ color: '#FF9600', fontSize: '.9em' }} primaryText="Loauz, Rayman Legends" leftIcon={<ContentInbox />} />
+const StatsTeam = () => (
+  <div>
+    <List className="d-flex">
+      <div className="col-md-6">
+        <ListItem
+          disabled={true}
+          style={{ color: '#FF9600' }}
+          leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={tropheeOrange} />} >
+          Joueur 8
+        </ListItem>
+        <ListItem
+          disabled={true}
+          style={{ color: '#63CBF2' }}
+          leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={tropheeBleu} />} >
+          Joueur 10
+        </ListItem>
+        <ListItem
+          disabled={true}
+          style={{ color: '#FF9600' }}
+          leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={tropheeOrange} />} >
+          Joueur 5
+        </ListItem>
+      </div>
+      <div className="col-md-6">
+        <ListItem
+          disabled={true}
+          style={{ color: '#63CBF2' }}
+          leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={tropheeBleu} />} >
+          Joueur 14
+        </ListItem>
+        <ListItem
+          disabled={true}
+          style={{ color: '#FF9600' }}
+          leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={tropheeOrange} />} >
+          Joueur 2
+        </ListItem>
+        <ListItem
+          disabled={true}
+          style={{ color: '#63CBF2' }}
+          leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={tropheeBleu} />} >
+          Joueur 9
+        </ListItem>
+      </div>
     </List>
   </div>
 );
 
-export default Records;
+export default StatsTeam;

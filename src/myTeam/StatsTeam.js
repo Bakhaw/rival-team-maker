@@ -14,16 +14,19 @@ const StatsTeam = () => (
       <div className="col-md-6">
         <ListItem
           disabled={true}
+          style={{ color: '#FF9600' }}
           leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={justdance} />} >
           Just Dance
         </ListItem>
         <ListItem
           disabled={true}
+          style={{ color: '#63CBF2' }}
           leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={steep} />} >
           Steep
         </ListItem>
         <ListItem
           disabled={true}
+          style={{ color: '#FF9600' }}
           leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={rayman} />} >
           Rayman Legends
         </ListItem>
@@ -31,11 +34,13 @@ const StatsTeam = () => (
       <div className="col-md-6">
         <ListItem
           disabled={true}
+          style={{ color: '#63CBF2' }}
           leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={rainbow} />} >
           Rainbow Six Siege
         </ListItem>
         <ListItem
           disabled={true}
+          style={{ color: '#FF9600' }}
           leftAvatar={<Avatar size={50} backgroundColor='transparent' style={{ borderRadius: '0' }} src={thecrew} />} >
           The Crew
         </ListItem>
