@@ -31,7 +31,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
+    fetch('http://www.json-generator.com/api/json/get/bUglDuCQUi?indent=2')
       .then(data => data.json())
       .then(data => this.setState({ data: [data] }));
   };

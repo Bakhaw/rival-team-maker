@@ -49,12 +49,9 @@ class User extends Component {
                     {community.country}
                   </p>
                   <p>{community.scores[3][1]}</p>
-                  <p style={{ color: '#ff9600' }}>Mes infos</p>
-                  <p style={{ color: '#75c8f4' }}>Infos de la communauté</p>
                 </div>
                 <div className="">
-                  <div className="graphTeamContainer" style={{ backgroundColor: 'rgba(30, 19, 68, 1)' }}>
-                    <p>Graphique des scores</p>
+                  <div className="graphTeamContainer">
                     <div className="graphTeam">
                       <Bar
                       data={
@@ -63,8 +60,11 @@ class User extends Component {
                           datasets: [
                             {
                               label: 'Scores communauté',
-                              backgroundColor: 'rgba(117, 200, 244, 0.6)',
-                              hoverBackgroundColor: 'rgba(117, 200, 244, 0.6)',
+                              backgroundColor: 'rgba(117, 200, 244, 0.4)',
+                              borderColor: '#75c8f4',
+                              borderWidth: 1,
+                              hoverBackgroundColor: 'rgba(117, 200, 244, 0.4)',
+                              hoverBorderColor: '#75c8f4',
                               data: community.scores,
                             },
                           ],
@@ -74,7 +74,7 @@ class User extends Component {
                       height={300}
                       options={{
                         maintainAspectRatio: false,
-                        legend: { display: false },
+                        legend: { display: true },
                       }}/>
                     </div>
                     <div className="graphMe">
@@ -86,8 +86,11 @@ class User extends Component {
                           datasets: [
                             {
                               label: 'Vos scores',
-                              backgroundColor: 'rgba(255, 150, 0, 0.6)',
-                              hoverBackgroundColor: 'rgba(255, 150, 0, 0.6)',
+                              backgroundColor: 'rgba(255, 150, 0, 0.4)',
+                              borderColor: '#ff9600',
+                              borderWidth: 1,
+                              hoverBackgroundColor: 'rgba(255, 150, 0, 0.4)',
+                              hoverBorderColor: '#ff9600',
                               data: community.me.scores,
                             },
                           ],
@@ -102,8 +105,7 @@ class User extends Component {
                       }}/>
                     </div>
                   </div>
-                  <div className="graphTeamContainer" style={{ backgroundColor: 'rgba(30, 19, 68, 1)' }}>
-                    <p style={{ color: '#ff9600' }}>Graphique des connexions</p>
+                  <div className="graphTeamContainer">
                     <div className="graphTeam">
                       <Bar
                       data={
@@ -124,14 +126,17 @@ class User extends Component {
                             {
                               label: 'Connexions communauté',
                               backgroundColor: 'rgba(117, 200, 244, 0.4)',
+                              borderColor: '#75c8f4',
+                              borderWidth: 1,
                               hoverBackgroundColor: 'rgba(117, 200, 244, 0.4)',
+                              hoverBorderColor: '#75c8f4',
                               data: community.connexions,
                             },
                           ],
                         }
                       }
                       width={600}
-                      height={200}
+                      height={300}
                       options={{
                         maintainAspectRatio: false,
                         legend: { display: false },
@@ -157,17 +162,20 @@ class User extends Component {
                             {
                               label: 'Vos connexions',
                               backgroundColor: 'rgba(255, 150, 0, 0.4)',
+                              borderColor: '#ff9600',
+                              borderWidth: 1,
                               hoverBackgroundColor: 'rgba(255, 150, 0, 0.4)',
+                              hoverBorderColor: '#ff9600',
                               data: community.me.connexions,
                             },
                           ],
                         }
                       }
                       width={600}
-                      height={200}
+                      height={300}
                       options={{
                         maintainAspectRatio: false,
-                        legend: { display: false },
+                        legend: { display: true },
                       }}/>
                     </div>
                   </div>
