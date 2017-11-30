@@ -1,18 +1,20 @@
 #!flask/bin/python
 from flask import Flask
 import json
-import pyodbc
+# import pyodbc
+import sqlite3
 from flask import request
 import pandas as pd
 from scipy.spatial.distance import pdist, squareform,euclidean
 import numpy as np
 
-sql_con = conn = pyodbc.connect(
-    r'DRIVER={ODBC Driver 13 for SQL Server};'
-    r'SERVER=DESKTOP-J2T7011;'
-    r'DATABASE=DW_HACKATHON;'
-    r'UID=Hackathon_SQL_Participant;'
-    r'PWD=Hackathon_PimpMyData#24')
+# sql_con = conn = pyodbc.connect(
+#     r'DRIVER={ODBC Driver 13 for SQL Server};'
+#     r'SERVER=DESKTOP-J2T7011;'
+#     r'DATABASE=DW_HACKATHON;'
+#     r'UID=Hackathon_SQL_Participant;'
+#     r'PWD=Hackathon_PimpMyData#24')
+conn = sqlite3.connect("rival_team_maker.db", check_same_thread=False)
 
 class reg(object):
     def __init__(self, cursor, row):
@@ -21,7 +23,7 @@ class reg(object):
 
 app = Flask(__name__)
 
-cursor = conn.execute("""SELECT * FROM [user].dim_map;""")
+cursor = conn.execute("""SELECT * FROM dim_map;""")
 
 dim_map = {}
 
@@ -39,9 +41,9 @@ def get_best_community(com_id):
     if com_id in requests_cache:
         return requests_cache[com_id]
     sql = """   SELECT oc.com_id, s.mapId, CAST(SUM(s.sum_score) AS FLOAT) / SUM(nb_played) score
-                FROM "user".dim_com_clusters oc
-                INNER JOIN "user".dim_com_clusters mc ON mc.com_id = 1004429 AND mc.cluster_hour_con=oc.cluster_hour_con AND mc.level_cat=oc.level_cat
-                LEFT JOIN "user".dim_community_scores s ON s.com_id = oc.com_id
+                FROM dim_com_clusters oc
+                INNER JOIN dim_com_clusters mc ON mc.com_id = 1004429 AND mc.cluster_hour_con=oc.cluster_hour_con AND mc.level_cat=oc.level_cat
+                LEFT JOIN dim_community_scores s ON s.com_id = oc.com_id
                 GROUP BY oc.com_id, s.mapId""".format(com_id=com_id)
 
     dataframe = pd.read_sql(sql, conn)
@@ -78,7 +80,7 @@ def get_search():
 def get_community_s(community_id):
     sql = """
         SELECT *
-        FROM [user].dim_community_scores
+        FROM dim_community_scores
         WHERE com_id = {com_id} AND sum_score > 0
         ORDER BY sum_score DESC;""".format(com_id=community_id)
     cursor = conn.execute(sql)
@@ -107,16 +109,16 @@ def get_community(community_id):
     }
 
     result = conn.execute("""   SELECT c.*, p.player_id
-                                FROM "user".dim_community c
-                                LEFT JOIN "user".dim_community_players p ON p.com_id=c.com_id
+                                FROM dim_community c
+                                LEFT JOIN dim_community_players p ON p.com_id=c.com_id
                                 WHERE c.com_id={com_id};""".format(com_id=community_id))
     for row in result.fetchall():
         d = reg(result, row)
         desc['community_id'] = d.com_id
         desc['name'] = d.name
         desc['nb_player'] = desc['nb_player'] + 1
-        desc['players'].append(row.player_id)
-    cursor = conn.execute("""SELECT DISTINCT country FROM "user".dim_community_country WHERE com_id={com_id}; """.format(com_id=community_id))
+        desc['players'].append(d.player_id)
+    cursor = conn.execute("""SELECT DISTINCT country FROM dim_community_country WHERE com_id={com_id}; """.format(com_id=community_id))
     country = []
     for row in cursor.fetchall():
         country.append(row[0])
@@ -125,21 +127,21 @@ def get_community(community_id):
 
 
 def add_to_community(community_id, profile_id):
-    sql = """SELECT player_id FROM [user].dim_community_players WHERE com_id =""" + str(community_id)
+    sql = """SELECT player_id FROM dim_community_players WHERE com_id =""" + str(community_id)
     print sql
     cursor = conn.execute(sql)
     players_in_community = [row[0] for row in cursor]
     if profile_id in players_in_community:
         return
-    sql = """INSERT INTO [user].dim_community_players VALUES({com_id}, '{player_id}');""".format(com_id=community_id, player_id=profile_id)
+    sql = """INSERT INTO dim_community_players VALUES({com_id}, '{player_id}');""".format(com_id=community_id, player_id=profile_id)
     conn.execute(sql)
     return
 
 def create_new_community(profile_id):
-    sql = """ INSERT INTO [user].dim_community
-              SELECT MAX(com_id) + 1, 'New community' FROM [user].dim_community;"""
+    sql = """ INSERT INTO dim_community
+              SELECT MAX(com_id) + 1, 'New community' FROM dim_community;"""
     cursor = conn.execute(sql)
-    cursor = conn.execute("""SELECT MAX(com_id) FROM [user].dim_community;""")
+    cursor = conn.execute("""SELECT MAX(com_id) FROM dim_community;""")
     community = cursor.fetchone()[0]
     add_to_community(community, profile_id)
     return community
@@ -147,7 +149,7 @@ def create_new_community(profile_id):
 @app.route('/api/community/<int:community_id>/', methods=['POST'])
 def post_community(community_id):
     profile_id = request.form['profile_id']
-    sql = """SELECT player_id FROM [user].dim_community_players WHERE com_id =""" + str(community_id)
+    sql = """SELECT player_id FROM dim_community_players WHERE com_id =""" + str(community_id)
     cursor = conn.execute(sql)
     row = cursor.fetchone()
     if cursor.fetchone() != None:
@@ -159,24 +161,24 @@ def post_community(community_id):
     return json.dumps({'community_id':community_id})
 
 def remove_from_community(community_id, player_id):
-    sql = """DELETE FROM [user].dim_community_players WHERE com_id={com_id} AND player_id = '{player_id}';""".format(com_id=community_id, player_id=player_id)
+    sql = """DELETE FROM dim_community_players WHERE com_id={com_id} AND player_id = '{player_id}';""".format(com_id=community_id, player_id=player_id)
     res = conn.execute(sql)
     return
 
 def delete_community_from_db(community_id):
-    sql = """SELECT COUNT(*) FROM [user].dim_community_players WHERE com_id={com_id}""".format(com_id=community_id)
+    sql = """SELECT COUNT(*) FROM dim_community_players WHERE com_id={com_id}""".format(com_id=community_id)
     cursor = conn.execute(sql)
     if cursor.fetchone()[0] == 0:
-        conn.execute("""DELETE FROM [user].dim_community WHERE com_id={com_id}""".format(com_id=community_id))
+        conn.execute("""DELETE FROM dim_community WHERE com_id={com_id}""".format(com_id=community_id))
 
 @app.route('/api/community/<int:community_id>/<player_id>/', methods=['DELETE'])
 def delete_community(community_id, player_id):
-    cursor = conn.execute("""SELECT COUNT(DISTINCT player_id) FROM [user].dim_community_players WHERE com_id = {com_id};""".format(com_id=community_id))
+    cursor = conn.execute("""SELECT COUNT(DISTINCT player_id) FROM dim_community_players WHERE com_id = {com_id};""".format(com_id=community_id))
     nb_player = cursor.fetchone()[0]
     cursor = conn.execute(
         """ SELECT com_id
-            FROM [user].dim_community_players
-            WHERE com_id IN (SELECT DISTINCT com_id FROM [user].dim_community_players WHERE player_id = '{player_id}')
+            FROM dim_community_players
+            WHERE com_id IN (SELECT DISTINCT com_id FROM dim_community_players WHERE player_id = '{player_id}')
                 AND com_id != {com_id}
             GROUP BY com_id
             HAVING COUNT(*) = 1;""".format(
@@ -198,7 +200,7 @@ import copy
 def get_community_stats(community_id):
     sql = """
         SELECT *
-        FROM [user].dim_community_scores
+        FROM dim_community_scores
         WHERE com_id = {com_id} AND sum_score > 0
         ORDER BY sum_score DESC;""".format(com_id=community_id)
     cursor = conn.execute(sql)
@@ -217,7 +219,7 @@ def get_community_stats(community_id):
 
 @app.route('/api/player/<player_id>/', methods=['GET'])
 def get_playerid(player_id):
-    sql = """SELECT DISTINCT com_id FROM "user".dim_community_players WHERE player_id = '{player_id}';""".format(player_id=player_id)
+    sql = """SELECT DISTINCT com_id FROM dim_community_players WHERE player_id = '{player_id}';""".format(player_id=player_id)
     cursor = conn.execute(sql)
     desc = {
         'player_id':player_id
@@ -231,7 +233,7 @@ def get_playerid(player_id):
 
 def get_connexions(community_id):
     sql = """   SELECT week_day, hour, nb_connexions
-                FROM [user].dim_community_hours_connexions_light
+                FROM dim_community_hours_connexions_light
                 WHERE com_id = {com_id}
                 ORDER BY week_day, hour;
         """.format(com_id=community_id)
