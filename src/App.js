@@ -18,20 +18,20 @@ class App extends Component {
 
   goRight = ()  => {
     communityIndex++;
-    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
+    fetch('http://127.0.0.1:5000/api/search/' + communityIndex)
       .then(data => data.json())
       .then(data => this.setState({ data: [data] }));
   };
 
   goLeft = ()  => {
     communityIndex--;
-    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
+    fetch('http://127.0.0.1:5000/api/search/' + communityIndex)
       .then(data => data.json())
       .then(data => this.setState({ data: [data] }));
   };
 
   componentDidMount() {
-    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
+    fetch('http://127.0.0.1:5000/api/search/' + communityIndex)
       .then(data => data.json())
       .then(data => this.setState({ data: [data] }));
   };
