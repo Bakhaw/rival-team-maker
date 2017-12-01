@@ -18,20 +18,20 @@ class App extends Component {
 
   goRight = ()  => {
     communityIndex++;
-    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
+    fetch('http://0.0.0.0:5000/api/search/' + communityIndex)
       .then(data => data.json())
       .then(data => this.setState({ data: [data] }));
   };
 
   goLeft = ()  => {
     communityIndex--;
-    fetch('http://192.168.207.93:5000/api/search/' + communityIndex)
+    fetch('http://0.0.0.0:5000/api/search/' + communityIndex)
       .then(data => data.json())
       .then(data => this.setState({ data: [data] }));
   };
 
   componentDidMount() {
-    fetch('http://www.json-generator.com/api/json/get/bUglDuCQUi?indent=2')
+    fetch('http://0.0.0.0:5000/api/search/' + communityIndex)
       .then(data => data.json())
       .then(data => this.setState({ data: [data] }));
   };
@@ -46,6 +46,7 @@ class App extends Component {
         />
       );
     };
+
     return (
       <div className="text-light">
         <MuiThemeProvider>
